@@ -4,17 +4,19 @@ import './App.css'
 import MainLayout from './@component/layout/MainLayout'
 import UserList from './@component/userList/UserList'
 import Search from './@component/search/Search'
+import createStore from './@lib/redux/store'
+import { Provider } from 'react-redux'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const store = createStore()
 
   return (
-    <div className="App">
+    <Provider store={store}>
       <MainLayout>
         <Search />
         <UserList />
       </MainLayout>
-    </div>
+    </Provider>
   )
 }
 
