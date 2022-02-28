@@ -1,14 +1,17 @@
 import { all, takeLatest } from "redux-saga/effects"
 import { handleInputKeyword } from "../../@features/Search/searchSaga"
-import { getSearch } from "../../@features/Search/SearchSlice"
+import { getSearch } from "../../@features/Search/searchSlice"
+import { handleChangeKeyword } from '../../@features/UserList/userListSaga'
+import { getUserList } from "../../@features/UserList/userListSlice"
+
+
 // import { handleGetCountryList } from "../../features/countryList/countryListSaga"
-// import { getCountryList } from "../../features/countryList/countryListSlice"
 // import { handleInputKeyword } from "../../features/listSearch/listSearchSaga"
 // import { getListSearch } from "../../features/listSearch/listSearchSlice"
 
 export function* rootSaga() {
   yield all([
-    takeLatest(getCountryList.type, handleGetCountryList),
+    takeLatest(getUserList.type, handleChangeKeyword),
     takeLatest(getSearch.type, handleInputKeyword)
   ])
 }

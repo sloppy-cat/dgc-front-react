@@ -24,7 +24,7 @@ const initialState: UserListState = {
   error: ""
 }
 
-export const fetchUserList = async (param?: string): Promise<UserList> => {
+export const fetchUserList = async (param: string): Promise<UserList> => {
   return axios.request<UserList>({
     url: "https://api.github.com/search/users",
     params: {
@@ -38,8 +38,13 @@ const UserListSlice = createSlice({
   name: "userList",
   initialState,
   reducers: {
-    getUserList(_, __: PayloadAction<string>) {},
-    setUserList(state, action: PayloadAction<UserList>) {},
+    getUserList(state, __: PayloadAction<string>) {
+      state.loading = true
+    },
+    setUserList(state, action: PayloadAction<UserList>) {
+      state.userList = action.payload
+      state.loading = false
+    },
     failedUserList(state, action) {
       state.loading = false
       state.error = action.payload
@@ -49,4 +54,5 @@ const UserListSlice = createSlice({
 
 export const {getUserList, setUserList, failedUserList} = UserListSlice.actions
 export const userList = UserListSlice.name
+export const userListSelector = (state: {[UserListSlice.name]: UserListState}) => state[userList]
 export default UserListSlice.reducer

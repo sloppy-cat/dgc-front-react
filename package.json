@@ -16,10 +16,10 @@
     "react-redux-saga": "^1.0.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.33",
+    "@reduxjs/toolkit": "^1.6.1",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
-    "@reduxjs/toolkit": "^1.6.1",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
   }
