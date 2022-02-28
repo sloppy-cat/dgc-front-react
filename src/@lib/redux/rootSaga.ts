@@ -8,7 +8,7 @@ import { getSearch } from "../../@features/Search/SearchSlice"
 
 export function* rootSaga() {
   yield all([
-    // takeLatest(getCountryList.type, handleGetCountryList),
+    takeLatest(getCountryList.type, handleGetCountryList),
     takeLatest(getSearch.type, handleInputKeyword)
   ])
 }
