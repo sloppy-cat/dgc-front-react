@@ -1,11 +1,18 @@
 import React, { FC } from 'react'
+import styled from 'styled-components'
 
-const MainLayout: FC = ({children}) => {
+const MainLayout: FC<{title?:string}> = ({title, children}) => {
   return (
-    <div>
+    <LayoutDiv>
+      <h1>{title}</h1>
       {children}
-    </div>
+    </LayoutDiv>
   )
 }
 
 export default MainLayout
+
+const LayoutDiv = styled.div`
+  padding: 5px;
+  text-align: center;
+`

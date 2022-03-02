@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <MainLayout>
+      <MainLayout title="GITHUB USER SEARCH">
         <Search />
         <UserList />
       </MainLayout>
